@@ -2,130 +2,111 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>CSS Technical Documentation Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <nav class="nav" id="navbar" role="navigation">
+    <nav class="nav" id="navbar">
       <header>CSS: Cascading Style Sheets</header>
-      <ul role="list">
-        <li role="listitem"><a class="nav-link" href="#introduction">Introduction</a></li>
-        <li role="listitem"><a class="nav-link" href="#css_syntax">CSS Syntax</a></li>
-        <li role="listitem"><a class="nav-link" href="#how_is_css_structure">How is CSS Structured</a></li>
-        <li role="listitem"><a class="nav-link" href="#how_does_css_actually_work">How Does CSS Actually Work</a></li>
-        <li role="listitem"><a class="nav-link" href="#what_is_a_selector">What is a Selector</a></li>
-        <li role="listitem"><a class="nav-link" href="#types_of_selectors">Types of Selectors</a></li>
-        <li role="listitem"><a class="nav-link" href="#reference">Reference</a></li>
+      <ul>
+        <li><a class="nav-link" href="#Introduction">Introduction</a></li>
+        <li><a class="nav-link" href="#CSS_Syntax">CSS Syntax</a></li>
+        <li><a class="nav-link" href="#How_CSS_Structure_Works">How CSS Structure Works</a></li>
+        <li><a class="nav-link" href="#How_Does_CSS_Actually_Work">How Does CSS Actually Work</a></li>
+        <li><a class="nav-link" href="#What_is_a_Selector">What is a Selector</a></li>
+        <li><a class="nav-link" href="#Types_of_Selectors">Types of Selectors</a></li>
+        <li><a class="nav-link" href="#Reference">Reference</a></li>
       </ul>
     </nav>
+
     <main id="main-doc">
-      <section class="main-section" id="introduction">
+      <!-- Introduction Section -->
+      <section class="main-section" id="Introduction">
         <header>Introduction</header>
         <article>
           <p>Cascading Style Sheets (CSS) is a stylesheet language used to describe the presentation of a document written in HTML or XML. CSS describes how elements should be rendered on screen, on paper, in speech, or on other media.</p>
-          <p>CSS saves a lot of work. It can control the layout of multiple web pages all at once.External stylesheets are stored in CSS files</p>
+          <p>CSS saves a lot of work. It can control the layout of multiple web pages all at once. External stylesheets are stored in CSS files.</p>
         </article>
       </section>
-      <section class="main-section" id="css_syntax">
+
+      <!-- CSS Syntax Section -->
+      <section class="main-section" id="CSS_Syntax">
         <header>CSS Syntax</header>
         <article>
-        <p>CSS is a rule-based language — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page.
-          For example, you can decide to have the main heading on your page to be shown as large red text. The following code shows a very simple CSS rule that would achieve the styling described above:
-        </p>
-        <code>h1{color:red; font-size:12px;}</code>
-        <ul>
-        <li>In the above example, the CSS rule opens with a selector. This selects the HTML element that we are going to style. In this case, we are styling level one headings (h1).</li>
-        <li>We then have a set of curly braces { }.</li>
-        <li>Inside the braces will be one or more declarations, which take the form of property and value pairs. We specify the property (color in the above example) before the colon, and we specify the value of the property after the colon (red in this example).</li>
-        <li>This example contains two declarations, one for color and the other for font-size. Each pair specifies a property of the element(s) we are selecting (h1 in this case), then a value that we'd like to give the property.</li>
-        </ul>
-        <p>CSS properties have different allowable values, depending on which property is being specified. In our example, we have the color property, which can take various color values. We also have the font-size property. This property can take various size units as a value.</p>
+          <p>CSS is a rule-based language — you define the rules by specifying groups of styles that should be applied to particular elements or groups of elements on your web page.</p>
+          <code>h1 { color: red; font-size: 12px; }</code>
+          <ul>
+            <li>The CSS rule opens with a selector. This selects the HTML element that we are going to style. In this case, we are styling level one headings (h1).</li>
+            <li>Inside the curly braces, there are declarations specifying the property and value pairs (e.g., color and font-size).</li>
+            <li>The example contains two declarations, one for color and the other for font-size.</li>
+            <li>CSS properties can take different values depending on the property (e.g., color can be any valid color name or code).</li>
+          </ul>
         </article>
       </section>
-      <section class="main-section" id="how_is_css_structure">
-        <header>How is CSS structure</header>
+
+      <!-- How CSS Structure Works Section -->
+      <section class="main-section" id="How_CSS_Structure_Works">
+        <header>How CSS Structure Works</header>
         <article>
-          <p>Now that you are beginning to understand the purpose and use of CSS, let's examine the structure of CSS.</p>
-          <h2>Applying CSS to HTML</h2>
-          <p>First, let's examine three methods of applying CSS to a document: with an external stylesheet, with an internal stylesheet, and with inline styles.</p>
-          <h3>External stylesheet</h3>
-          <p>An external stylesheet contains CSS in a separate file with a .css extension. This is the most common and useful method of bringing CSS to a document. You can link a single CSS file to multiple web pages, styling all of them with the same CSS stylesheet.</p>
-          <p>You reference an external CSS stylesheet from an HTML link element:<br>
-            <code>link rel="stylesheet" href="styles.css"</code>
-          </p>
-          <h3>Internal stylesheet</h3>
-          <p>An internal stylesheet resides within an HTML document. To create an internal stylesheet, you place CSS inside a <strong>style</strong> element contained inside the HTML <strong>head</strong>.</p>
-          <code> 
-          style<br>
-          h1 {
-          color: blue;
-          background-color: yellow;
-          border: 1px solid black;
-          }<br>
-          style</code>
-          <h3>Inline styles</h3>
-          <p>Inline styles are CSS declarations that affect a single HTML element, contained within a <strong>style</strong> attribute. The implementation of an inline style in an HTML document might look like this:<br>
-            <code> h1 style="color: blue;background-color: yellow;border: 1px solid black;
-            "HELLO WORLD!"
-            /h1
-            </code>
-          </p>
+          <p>Let's examine the structure of CSS. CSS can be applied to a document in three ways: external stylesheet, internal stylesheet, and inline styles.</p>
+          <h3>External Stylesheet</h3>
+          <p>An external stylesheet is the most common method of bringing CSS to a document. You can link a single CSS file to multiple web pages, styling all of them with the same CSS stylesheet.</p>
+          <code>&lt;link rel="stylesheet" href="styles.css"&gt;</code>
+          <h3>Internal Stylesheet</h3>
+          <p>An internal stylesheet resides within an HTML document, within the <code>&lt;style&gt;</code> element inside the <code>&lt;head&gt;</code> section.</p>
+          <code>&lt;style&gt; h1 { color: blue; background-color: yellow; } &lt;/style&gt;</code>
+          <h3>Inline Styles</h3>
+          <p>Inline styles are applied directly to individual HTML elements using the <code>style</code> attribute.</p>
+          <code>&lt;h1 style="color: blue; background-color: yellow;"&gt;Hello World!&lt;/h1&gt;</code>
         </article>
       </section>
-      <section class="main-section" id="how_does_css_actually_work">
-        <header>How does CSS actually work</header>
+
+      <!-- How Does CSS Work Section -->
+      <section class="main-section" id="How_Does_CSS_Actually_Work">
+        <header>How Does CSS Actually Work</header>
         <article>
-          <p>When a browser displays a document, it must combine the document's content with its style information. It processes the document in a number of stages, which we've listed below. Bear in mind that this is a very simplified version of what happens when a browser loads a webpage, and that different browsers will handle the process in different ways. But this is roughly what happens.</p>
+          <p>When a browser displays a document, it must combine the document's content with its style information. It processes the document in several stages.</p>
           <ol>
-          <li>The browser loads the HTML (e.g. receives it from the network).</li>
-          <li>It converts the HTML into a DOM (Document Object Model). The DOM represents the document in the computer's memory. The DOM is explained in a bit more detail in the next section.</li>
-          <li>The browser then fetches most of the resources that are linked to by the HTML document, such as embedded images, videos, and even linked CSS! JavaScript is handled a bit later on in the process, and we won't talk about it here to keep things simpler.</li>
-          <li>The browser parses the fetched CSS, and sorts the different rules by their selector types into different "buckets", e.g. element, class, ID, and so on. Based on the selectors it finds, it works out which rules should be applied to which nodes in the DOM, and attaches style to them as required (this intermediate step is called a render tree).</li>
-          <li>The render tree is laid out in the structure it should appear in after the rules have been applied to it.The visual display of the page is shown on the screen (this stage is called painting).</li>
+            <li>The browser loads the HTML document.</li>
+            <li>The browser converts the HTML into a Document Object Model (DOM), representing the document in memory.</li>
+            <li>The browser fetches resources like images, videos, and linked CSS files.</li>
+            <li>The browser parses the fetched CSS and applies the rules to the DOM elements, creating a render tree.</li>
+            <li>The render tree is painted to the screen, displaying the page.</li>
+          </ol>
         </article>
       </section>
-      <section class="main-section" id="what_is_a_selector">
-        <header>What is a selector</header>
+
+      <!-- What is a Selector Section -->
+      <section class="main-section" id="What_is_a_Selector">
+        <header>What is a Selector</header>
         <article>
-          <p>A CSS selector is the first part of a CSS Rule. It is a pattern of elements and other terms that tell the browser which HTML elements should be selected to have the CSS property values inside the rule applied to them. The element or elements which are selected by the selector are referred to as the subject of the selector.<br>
-            <code>h1 {
-            color: blue;
-            }
-            .special {
-            color: blue;
-            }</code>
-          </p>
-          <p>
-            In other articles you may have met some different selectors, and learned that there are selectors that target the document in different ways — for example by selecting an element such as h1, or a class such as .special. 
-          </p>
+          <p>A CSS selector specifies which HTML elements should be styled. It can target elements by their tag name, class, or ID.</p>
+          <code>h1 { color: blue; }</code>
+          <code>.special { color: blue; }</code>
         </article>
       </section>
-      <section class="main-section" id="types_of_selectors">
-        <header>Types of selectors</header>
+
+      <!-- Types of Selectors Section -->
+      <section class="main-section" id="Types_of_Selectors">
+        <header>Types of Selectors</header>
         <article>
-        <p>There are a few different groupings of selectors, and knowing which type of selector you might need will help you to find the right tool for the job. In this article's subarticles we will look at the different groups of selectors in more detail.</p>
-        <h4>Attribute selectorss</h4>
-        <p>This group of selectors gives you different ways to select elements based on the presence of a certain attribute on an element:</p>
-        <h3>Pseudo-classes and pseudo-elements</h3>
-        <p>This group of selectors includes pseudo-classes, which style certain states of an element. The :hover pseudo-class for example selects an element only when it is being hovered over by the mouse pointer:</p>
-        <strong>a:hover {
-        }</strong>
-        <p>
-          It also includes pseudo-elements, which select a certain part of an element rather than the element itself. For example, ::first-line always selects the first line of text inside an element (a 
-        <p> in the below case), acting as if a <span> was wrapped around the first formatted line and then selected.</p>
-        <h3>
-        Combinators</h3
-        <p>The final group of selectors combine other selectors in order to target elements within our documents. The following, for example, selects paragraphs that are direct children of 
-        <article> elements using the child combinator (>):<strong>
-          article > p {}
-          </strong></p>
+          <p>Selectors allow you to target specific HTML elements. There are various types of selectors:</p>
+          <h4>Attribute Selectors</h4>
+          <p>These selectors target elements based on their attributes.</p>
+          <h4>Pseudo-classes and Pseudo-elements</h4>
+          <p>Examples include <code>:hover</code> for hovering over an element, and <code>::first-line</code> for targeting the first line of an element.</p>
+          <h4>Combinators</h4>
+          <p>Combinators allow you to select elements based on their relationships with other elements, like <code>&gt;</code> for selecting child elements.</p>
+          <code>article > p {}</code>
         </article>
       </section>
-      <section class="main-section" id="reference">
+
+      <!-- Reference Section -->
+      <section class="main-section" id="Reference">
         <header>Reference</header>
         <article>
-          <p>All the documentation in this page is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors">MDN</a></p>
+          <p>All documentation is taken from <a href="https://developer.mozilla.org/en-US/docs/Learn/CSS/Building_blocks/Selectors" target="_blank">MDN Web Docs</a>.</p>
         </article>
       </section>
     </main>
