@@ -1,6 +1,6 @@
 # Technical Documentation Page
 
-![image](https://github.com/user-attachments/assets/34c04659-f7a3-4751-9b32-dfa9a7c8856c)
+<img src="https://i.ibb.co/cyDmrny/2025-01-08-113854.png" alt="2025-01-08-113854" border="0">
 
 
 # Build a Technical Documentation Page
